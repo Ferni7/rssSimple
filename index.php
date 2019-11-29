@@ -1,5 +1,5 @@
 <?
-header('Content-type: application/xml');
+header('Content-type: application/rss+xml');
 
 $feed = implode(file($_GET['feed']));
 
@@ -19,6 +19,7 @@ foreach ( $array[channel][item] as $item ) {
   echo "\t<item>\r\n";
   echo "\t\t<title>" . htmlspecialchars($item[title]) . "</title>\r\n";
   echo "\t\t<link>" . htmlspecialchars($item[link]) . "</link>\r\n";
+  echo "\t\t<pubDate>" . htmlspecialchars($item[pubDate]) . "</pubDate>\r\n";
   echo "\t</item>\r\n";
 }
 ?>
